@@ -3,9 +3,15 @@
 </script>
 
 <template>
-  <h1>App</h1>
+  <router-view/>
 </template>
 
 <style>
-
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
 </style>
