@@ -1,17 +1,11 @@
 <script setup>
-
+import Navbar from '@/components/Navbar.vue';
 </script>
 
 <template>
-  <router-view/>
+  <Navbar />
 </template>
 
 <style>
-body {
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
+
 </style>
