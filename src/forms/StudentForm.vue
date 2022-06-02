@@ -6,6 +6,10 @@
           <fieldset>
             <legend>Register New Student</legend>
             <div class="mb-3">
+              <label class="form-label" for="sid">SID (Student ID)</label>
+              <input class="form-control" name="sid" v-model="sid" type="text">
+            </div>
+            <div class="mb-3">
               <label class="form-label" for="firstname">First Name</label>
               <input class="form-control" name="firstname" v-model="firstname" type="text">
             </div>
@@ -22,15 +26,15 @@
             </div>
             <div class="mb-3">
               <label class="form-label" for="birthdate">Birthdate</label>
-              <input class="form-control text-center" name="birthdate" type="date">
+              <input class="form-control text-center" name="birthdate" v-model="birthdate" type="date">
             </div>
             <div class="mb-3">
               <label class="form-label" for="gender">Gender</label>
               <br>
-              <input class="form-check-input" name="gender" id="gender-male" type="radio">
+              <input class="form-check-input" name="gender" value="male" v-model="gender" id="gender-male" type="radio">
               <label class="form-check-label" for="gender-male">&ensp;Male</label>
               <br>
-              <input class="form-check-input" name="gender" id="gender-female" type="radio">
+              <input class="form-check-input" name="gender" value="female" v-model="gender" id="gender-female" type="radio">
               <label class="form-check-label" for="gender-female">&ensp;Female</label>
             </div>
             <input class="btn btn-primary" type="submit" value="Register">
@@ -41,11 +45,11 @@
   <div class="col-4"></div>
 </template>
 
-<script>import { routerKey, useRouter } from "vue-router";
-
+<script>
 export default {
   data () {
     return {
+      sid: null,
       firstname: null,
       lastname: null,
       email: null,
@@ -56,16 +60,16 @@ export default {
   methods: {
     registerStudent: async function (f) {
       f.preventDefault();
-      console.log('test');
+
+      const [year, month, day] = this.birthdate.split('-');
 
       const data = {
+        username: this.sid,
         firstname: this.firstname,
         lastname: this.lastname,
-        username: this.firstname + ' ' + this.lastname,
         email: this.email,
-        password: 'pass1234',
-        birthdate: '17/03/2001',
-        gender: 1
+        birthdate: `${day}/${month}/${year}`,
+        gender: (this.gender == 'male')? 0: 1
       };
 
       console.log(JSON.stringify(data));
