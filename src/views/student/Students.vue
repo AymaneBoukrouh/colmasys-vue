@@ -10,7 +10,6 @@
             <th>Email</th>
             <th>Birthdate</th>
             <th>Gender</th>
-            <th>Profile</th>
           </tr>
         </thead>
       </table>
@@ -30,12 +29,15 @@ export default {
     $('#students-table').DataTable({
       data: this.students.map(student =>
         [student.username, student.firstname, student.lastname,
-        student.email, student.birthdate, student.gender, student.id]
-      )
-    });
-
-    $(".student-link").click(function() {
-      window.location = $(this).data("href");
+        student.email, student.birthdate, student.gender]
+      ),
+      createdRow: (row, data) => {
+        $(row).css('cursor', 'pointer')
+        $(row).click(() => {
+          const username = data[0];
+          this.$router.push({name: 'Student', params: {username: username}});
+        })
+      }
     });
   },
   data () {
@@ -47,5 +49,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
