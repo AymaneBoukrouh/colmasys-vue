@@ -42,7 +42,7 @@ export default {
   },
   data () {
    return {
-     students: null
+      students: null
    }
  }
 }

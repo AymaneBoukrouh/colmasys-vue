@@ -2,7 +2,7 @@
   <div class="user-profile bg-dark">
     <div class="user-imb">
       <img class="user-image responsive" src="https://source.unsplash.com/user/c_v_r/1900x800">
-      <button class="btn btn-primary user-button" id="follow-button">Follow</button>
+      <router-link class="btn btn-primary user-button" :to="{name: 'EditStudent', params: {username: this.username}}">Edit</router-link>
     </div>
     <div class="user-info">
       <h2>{{ username }}</h2>
@@ -63,9 +63,5 @@ export default {
 	padding-left: 20px;
 	grid-column: 2/3;
 	grid-row: 1/2;
-}
-
-.about {
-	text-indent: 1em;
 }
 </style>

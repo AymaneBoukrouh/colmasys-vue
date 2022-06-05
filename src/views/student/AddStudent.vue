@@ -4,10 +4,6 @@ import StudentForm from '@/forms/StudentForm.vue'
 
 <template>
   <div class="d-flex flex-row align-items-center p-3">
-      <StudentForm />
+      <StudentForm formSubmit='addStudent' />
   </div>
 </template>
-
-<style>
-
-</style>

@@ -2,7 +2,7 @@
   <div class="col-4"></div>
     <div class="col-4">
       <div class="beautiful-box">
-        <form @submit="registerStudent">
+        <form @submit.prevent="onSubmit">
           <fieldset>
             <legend>Register New Student</legend>
             <div class="mb-3">
@@ -47,20 +47,23 @@
 
 <script>
 export default {
-  data () {
-    return {
-      sid: null,
-      firstname: null,
-      lastname: null,
-      email: null,
-      birthdate: null,
-      gender: null
-    }
+  props: {
+    sid: String,
+    firstname: String,
+    lastname: String,
+    email: String,
+    birthdate: String,
+    gender: String,
+    formSubmit: String
   },
   methods: {
-    registerStudent: async function (f) {
-      f.preventDefault();
-
+    onSubmit: async function () {
+      if (this.formSubmit == 'addStudent')
+        await this.addStudent();
+      else if (this.formSubmit == 'editStudent')
+        await this.editStudent();
+    },
+    addStudent: async function () {
       const [year, month, day] = this.birthdate.split('-');
 
       const data = {
@@ -81,6 +84,9 @@ export default {
       });
       
       this.$router.push('/students');
+    },
+    editStudent: async function () {
+      console.log('edit');
     }
   }
 }

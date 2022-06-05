@@ -6,6 +6,7 @@ import Dashboard from '@/views/Dashboard.vue'
 import Students from '@/views/student/Students.vue'
 import Student from '@/views/student/Student.vue'
 import AddStudent from '@/views/student/AddStudent.vue'
+import EditStudent from '@/views/student/EditStudent.vue'
 import '/src/assets/js/bootstrap.js'
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
     { path: '/dashboard', name: 'Dashboard', component: Dashboard },
     { path: '/students', name: 'Students', component: Students },
     { path: '/students/new', name: 'AddStudent', component: AddStudent },
+    { path: '/students/edit/:username', name: 'EditStudent', component: EditStudent },
     { path: '/students/:username', name: 'Student', component: Student }
 ];
 
