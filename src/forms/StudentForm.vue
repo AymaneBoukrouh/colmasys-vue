@@ -37,7 +37,7 @@
               <input class="form-check-input" name="gender" value="female" v-model="gender" id="gender-female" type="radio">
               <label class="form-check-label" for="gender-female">&ensp;Female</label>
             </div>
-            <input class="btn btn-primary" type="submit" value="Register">
+            <input class="btn btn-primary" type="submit" :value="submitName">
           </fieldset>
         </form>
       </div>
@@ -48,13 +48,15 @@
 <script>
 export default {
   props: {
+    id: Number,
     sid: String,
     firstname: String,
     lastname: String,
     email: String,
     birthdate: String,
     gender: String,
-    formSubmit: String
+    formSubmit: String,
+    submitName: String
   },
   methods: {
     onSubmit: async function () {
@@ -63,7 +65,7 @@ export default {
       else if (this.formSubmit == 'editStudent')
         await this.editStudent();
     },
-    addStudent: async function () {
+    sendStudentData: async function (method, endpoint) {
       const [year, month, day] = this.birthdate.split('-');
 
       const data = {
@@ -77,16 +79,19 @@ export default {
 
       console.log(JSON.stringify(data));
 
-      const response = await fetch('http://localhost:8000/student', {
-        method: 'POST',
+      const response = await fetch(endpoint, {
+        method: method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
       
       this.$router.push('/students');
     },
+    addStudent: async function () {
+      this.sendStudentData('POST', 'http://localhost:8000/student');
+    },
     editStudent: async function () {
-      console.log('edit');
+      this.sendStudentData('PUT', `http://localhost:8000/student/${this.id}`);
     }
   }
 }

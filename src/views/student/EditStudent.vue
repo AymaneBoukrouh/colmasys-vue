@@ -6,6 +6,8 @@ import StudentForm from '@/forms/StudentForm.vue'
   <div class="d-flex flex-row align-items-center p-3">
       <StudentForm
         formSubmit = 'editStudent'
+        submitName = 'Save'
+        :id = 'id'
         :sid = 'sid'
         :firstname = 'firstname'
         :lastname = 'lastname'
@@ -21,6 +23,7 @@ export default {
   data () {
    return {
       username: this.$route.params.username,
+      id: null,
       sid: null,
       firstname: null,
       lastname: null,
@@ -35,6 +38,7 @@ export default {
         .then((data) => {
           const [day, month, year] = data.birthdate.split('/');
 
+          this.id = data.id;
           this.sid = data.username;
           this.firstname = data.firstname;
           this.lastname = data.lastname;
