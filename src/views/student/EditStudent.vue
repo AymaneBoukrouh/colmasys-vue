@@ -6,6 +6,7 @@ import StudentForm from '@/forms/StudentForm.vue'
   <div class="d-flex flex-row align-items-center p-3">
       <StudentForm
         formSubmit = 'editStudent'
+        formTitle = 'Edit Student'
         submitName = 'Save'
         :id = 'id'
         :sid = 'sid'

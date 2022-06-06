@@ -4,7 +4,7 @@
       <div class="beautiful-box">
         <form @submit.prevent="onSubmit">
           <fieldset>
-            <legend>Register New Student</legend>
+            <legend>{{ formTitle }}</legend>
             <div class="mb-3">
               <label class="form-label" for="sid">SID (Student ID)</label>
               <input class="form-control" name="sid" v-model="sid" type="text">
@@ -56,6 +56,7 @@ export default {
     birthdate: String,
     gender: String,
     formSubmit: String,
+    formTitle: String,
     submitName: String
   },
   methods: {
