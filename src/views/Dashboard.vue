@@ -5,8 +5,8 @@ import Plotly from 'plotly.js-dist/plotly';
 
 <template>
 <div class="admin-dashboard-grid-container">
-  <CardStats link='/professors' icon='person-workspace' color='darkgreen' text='Professors' :value=27 />
-  <CardStats link='/students' icon='person' color='orange' text='Students' :value=254 />
+  <CardStats link='/professors' icon='person-workspace' color='darkgreen' text='Professors' :value=this.data.professors />
+  <CardStats link='/students' icon='person' color='orange' text='Students' :value=this.data.students />
   <div class="beautiful-box admin-dashboard-payments">
     <h3>Majors</h3>
     <div id="payments-chart"></div>
@@ -88,11 +88,25 @@ import Plotly from 'plotly.js-dist/plotly';
 <script>
 export default {
   async created () {
-    const response = await fetch('http://localhost:5000/admin/dashboard');
-    const payments_chart = await response.json();
-    Plotly.newPlot('payments-chart', payments_chart);
+    //const response = await fetch('http://localhost:5000/admin/dashboard');
+    //const payments_chart = await response.json();
+    //Plotly.newPlot('payments-chart', payments_chart);
     //alert(payments_chart);
-  }
+  },
+  async mounted () {
+    const response = await fetch('http://localhost:8000/dashboard');
+    this.data = await response.json();
+  },
+  data () {
+   return {
+      data: {
+        'professors': 0,
+        'students': 0,
+        'classes': 0
+      }
+   }
+ }
+  
 }
 </script>
 
