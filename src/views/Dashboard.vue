@@ -56,7 +56,7 @@ import Plotly from 'plotly.js-dist/plotly';
       </div>
     </div>
   </div>
-  <CardStats link='/' icon='person' color='lightgray' text='Classes' :value=9 />
+  <CardStats link='/classes' icon='person' color='lightgray' text='Classes' :value=9 />
   <CardStats link='/' icon='people' color='green' text='Clubs' :value=4 />
   <CardStats link='/' icon='currency-dollar' color='orange' text='Payments' :value=241 />
   <CardStats link='/' icon='card-checklist' color='yellow' text='Reports' :value=10 />
