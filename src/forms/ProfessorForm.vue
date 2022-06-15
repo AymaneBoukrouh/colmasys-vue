@@ -18,10 +18,10 @@
               <input class="form-control" name="lastname" v-model="lastname" type="text">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="lastname">Email</label>
+              <label class="form-label" for="email">Email</label>
               <div class="input-group">
                 <span class="input-group-text">@</span>
-                <input class="form-control" name="lastname" v-model="email" type="text">
+                <input class="form-control" name="email" v-model="email" type="text">
               </div>
             </div>
             <div class="mb-3">
