@@ -5,8 +5,8 @@ import Plotly from 'plotly.js-dist/plotly';
 
 <template>
 <div class="admin-dashboard-grid-container">
-  <CardStats link='/professors' icon='person-workspace' color='darkgreen' text='Professors' :value=this.data.professors />
-  <CardStats link='/students' icon='person' color='orange' text='Students' :value=this.data.students />
+  <CardStats link='/professors' icon='person-workspace' color='darkgreen' text='Professors' :value=data.professors />
+  <CardStats link='/students' icon='person' color='orange' text='Students' :value=data.students />
   <div class="beautiful-box admin-dashboard-payments">
     <h3>Majors</h3>
     <div id="payments-chart"></div>
@@ -56,10 +56,10 @@ import Plotly from 'plotly.js-dist/plotly';
       </div>
     </div>
   </div>
-  <CardStats link='/classes' icon='person' color='lightgray' text='Classes' :value=9 />
-  <CardStats link='/clubs' icon='people' color='green' text='Clubs' :value=4 />
-  <CardStats link='/' icon='currency-dollar' color='orange' text='Payments' :value=241 />
-  <CardStats link='/' icon='card-checklist' color='yellow' text='Reports' :value=10 />
+  <CardStats link='/classes' icon='person' color='lightgray' text='Classes' :value=data.classes />
+  <CardStats link='/clubs' icon='people' color='green' text='Clubs' :value=-1 />
+  <CardStats link='/' icon='currency-dollar' color='orange' text='Payments' :value=-1 />
+  <CardStats link='/' icon='card-checklist' color='yellow' text='Reports' :value=-1 />
   <div class="beautiful-box admin-dashboard-attendance">
     <h3>Attendance (Last 7 days)</h3>
       <div id="attendance-chart" style="width: 90%;"></div>
