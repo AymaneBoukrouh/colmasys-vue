@@ -14,6 +14,10 @@ import EditProfessor from '@/views/professor/EditProfessor.vue'
 import Classes from '@/views/class/Classes.vue'
 import AddClass from '@/views/class/AddClass.vue'
 import EditClass from '@/views/class/EditClass.vue'
+import Clubs from '@/views/club/Clubs.vue'
+import Club from '@/views/club/Club.vue'
+import AddClub from '@/views/club/AddClub.vue'
+import EditClub from '@/views/club/EditClub.vue'
 import '/src/assets/js/bootstrap.js'
 
 const routes = [
@@ -30,7 +34,11 @@ const routes = [
     { path: '/professors/:username', name: 'Professor', component: Professor },
     { path: '/classes', name: 'Classes', component: Classes },
     { path: '/classes/new', name: 'AddClass', component: AddClass },
-    { path: '/classes/edit/:id', name: 'EditClass', component: EditClass }
+    { path: '/classes/edit/:id', name: 'EditClass', component: EditClass },
+    { path: '/clubs', name: 'Clubs', component: Clubs },
+    { path: '/clubs/new', name: 'AddClub', component: AddClub },
+    { path: '/clubs/edit/:id', name: 'EditClub', component: EditClub },
+    { path: '/clubs/:id', name: 'Club', component: Club }
 ];
 
 const router = createRouter({

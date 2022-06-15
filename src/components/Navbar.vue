@@ -15,7 +15,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbar-management">
               <li><router-link to="/professors" class="dropdown-item">Professors</router-link></li>
               <li><router-link to="/students" class="dropdown-item">Students</router-link></li>
-              <li><router-link to="/" class="dropdown-item">Clubs</router-link></li>
+              <li><router-link to="/clubs" class="dropdown-item">Clubs</router-link></li>
               <li><router-link to="/classes" class="dropdown-item">Classes</router-link></li>
             </ul>
           </li>
