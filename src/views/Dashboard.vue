@@ -5,10 +5,10 @@ import Plotly from 'plotly.js-dist/plotly';
 
 <template>
 <div class="admin-dashboard-grid-container">
-  <CardStats link='/' icon='person-workspace' color='darkgreen' text='Professors' :value=27 />
+  <CardStats link='/professors' icon='person-workspace' color='darkgreen' text='Professors' :value=27 />
   <CardStats link='/students' icon='person' color='orange' text='Students' :value=254 />
   <div class="beautiful-box admin-dashboard-payments">
-    <h3>Payments (February 2022)</h3>
+    <h3>Majors</h3>
     <div id="payments-chart"></div>
     <div class="d-flex flex-row justify-content-between align-items-center">
       <div>

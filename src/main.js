@@ -7,6 +7,10 @@ import Students from '@/views/student/Students.vue'
 import Student from '@/views/student/Student.vue'
 import AddStudent from '@/views/student/AddStudent.vue'
 import EditStudent from '@/views/student/EditStudent.vue'
+import Professors from '@/views/professor/Professors.vue'
+import Professor from '@/views/professor/Professor.vue'
+import AddProfessor from '@/views/professor/AddProfessor.vue'
+import EditProfessor from '@/views/professor/EditProfessor.vue'
 import '/src/assets/js/bootstrap.js'
 
 const routes = [
@@ -16,7 +20,11 @@ const routes = [
     { path: '/students', name: 'Students', component: Students },
     { path: '/students/new', name: 'AddStudent', component: AddStudent },
     { path: '/students/edit/:username', name: 'EditStudent', component: EditStudent },
-    { path: '/students/:username', name: 'Student', component: Student }
+    { path: '/students/:username', name: 'Student', component: Student },
+    { path: '/professors', name: 'Professors', component: Professors },
+    { path: '/professors/new', name: 'AddProfessor', component: AddProfessor },
+    { path: '/professors/edit/:username', name: 'EditProfessor', component: EditProfessor },
+    { path: '/professors/:username', name: 'Professor', component: Professor }
 ];
 
 const router = createRouter({

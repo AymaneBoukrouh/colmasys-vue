@@ -13,7 +13,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbar-management" role="button" data-bs-toggle="dropdown" aria-expanded="false">Management</a>
             <ul class="dropdown-menu" aria-labelledby="navbar-management">
-              <li><router-link to="/" class="dropdown-item">Professors</router-link></li>
+              <li><router-link to="/professors" class="dropdown-item">Professors</router-link></li>
               <li><router-link to="/students" class="dropdown-item">Students</router-link></li>
               <li><router-link to="/" class="dropdown-item">Clubs</router-link></li>
             </ul>
