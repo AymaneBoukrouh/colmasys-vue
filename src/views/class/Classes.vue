@@ -4,11 +4,10 @@
       <table id="classes-table" class="stripe hover">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Major</th>
-            <th>Year</th>
-            <th>Group</th>
-            <th>Academic Year</th>
+            <th>Class</th>
+            <th>Students</th>
+            <th>Professors</th>
+            <th>Subjects</th>
           </tr>
         </thead>
       </table>
@@ -27,7 +26,7 @@ export default {
 
     $('#classes-table').DataTable({
       data: this.classes.map(class_ => 
-        [class_.id, class_.major, class_.year, class_.group, class_.academic_year]
+        [class_.name, class_.number_of_students, class_.number_of_professors, class_.number_of_subjects]
       ),
       createdRow: (row, data) => {
         $(row).css('cursor', 'pointer')
