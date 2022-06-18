@@ -7,8 +7,7 @@
             <th>Student ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
-            <th>Birthdate</th>
+            <th>Class</th>
             <th>Gender</th>
           </tr>
         </thead>
@@ -28,8 +27,7 @@ export default {
 
     $('#students-table').DataTable({
       data: this.students.map(student =>
-        [student.username, student.firstname, student.lastname,
-        student.email, student.birthdate, student.gender]
+        [student.username, student.firstname, student.lastname, student.class, student.gender]
       ),
       createdRow: (row, data) => {
         $(row).css('cursor', 'pointer')
