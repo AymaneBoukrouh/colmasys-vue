@@ -15,6 +15,7 @@ import StudentForm from '@/forms/StudentForm.vue'
         :email = 'email'
         :birthdate = 'birthdate'
         :gender = 'gender'
+        :class_id = class_id
       />
   </div>
 </template>
@@ -30,6 +31,7 @@ export default {
       lastname: null,
       email: null,
       birthdate: null,
+      class_id: null,
       gender: null
     }
   },
@@ -46,6 +48,9 @@ export default {
           this.email = data.email;
           this.birthdate = `${year}-${month}-${day}`;
           this.gender = data.gender.toLowerCase();
+          this.class_id = data.class_id;
+
+          console.log(data)
         })
       )
   }

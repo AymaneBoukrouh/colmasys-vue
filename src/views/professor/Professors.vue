@@ -7,8 +7,8 @@
             <th>Professor ID</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>Email</th>
-            <th>Birthdate</th>
+            <th>Classes</th>
+            <th>Subjects</th>
             <th>Gender</th>
           </tr>
         </thead>
@@ -29,7 +29,7 @@ export default {
     $('#professors-table').DataTable({
       data: this.professors.map(professor =>
         [professor.username, professor.firstname, professor.lastname,
-        professor.email, professor.birthdate, professor.gender]
+        professor.number_of_classes, professor.number_of_subjects, professor.gender]
       ),
       createdRow: (row, data) => {
         $(row).css('cursor', 'pointer')

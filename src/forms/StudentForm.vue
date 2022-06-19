@@ -6,30 +6,35 @@
           <fieldset>
             <legend>{{ formTitle }}</legend>
             <div class="mb-3">
-              <label class="form-label" for="sid">SID (Student ID)</label>
+              <label class="form-label" for="sid">*SID (Student ID)</label>
               <input class="form-control" name="sid" v-model="sid" type="text">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="firstname">First Name</label>
+              <label class="form-label" for="class">Class</label>
+              <select class="form-select" name="class" id="class" v-model="class_id">
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="firstname">*First Name</label>
               <input class="form-control" name="firstname" v-model="firstname" type="text">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="lastname">Last Name</label>
+              <label class="form-label" for="lastname">*Last Name</label>
               <input class="form-control" name="lastname" v-model="lastname" type="text">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="email">Email</label>
+              <label class="form-label" for="email">*Email</label>
               <div class="input-group">
                 <span class="input-group-text">@</span>
                 <input class="form-control" name="email" v-model="email" type="text">
               </div>
             </div>
             <div class="mb-3">
-              <label class="form-label" for="birthdate">Birthdate</label>
+              <label class="form-label" for="birthdate">*Birthdate</label>
               <input class="form-control text-center" name="birthdate" v-model="birthdate" type="date">
             </div>
             <div class="mb-3">
-              <label class="form-label" for="gender">Gender</label>
+              <label class="form-label" for="gender">*Gender</label>
               <br>
               <input class="form-check-input" name="gender" value="male" v-model="gender" id="gender-male" type="radio">
               <label class="form-check-label" for="gender-male">&ensp;Male</label>
@@ -55,9 +60,18 @@ export default {
     email: String,
     birthdate: String,
     gender: String,
+    class_id: Number,
     formSubmit: String,
     formTitle: String,
     submitName: String
+  },
+  async mounted () {
+    await fetch(`http://localhost:8000/classes`)
+      .then((response) => response.json()
+        .then((classes) => {
+          classes.forEach((class_) => $('#class').append(new Option(`${class_.name}`, class_.id)));
+        })
+      )
   },
   methods: {
     onSubmit: async function () {
@@ -75,7 +89,8 @@ export default {
         lastname: this.lastname,
         email: this.email,
         birthdate: `${day}/${month}/${year}`,
-        gender: (this.gender == 'male')? 0: 1
+        gender: (this.gender == 'male')? 0: 1,
+        class_id: this.class_id
       };
 
       console.log(JSON.stringify(data));
