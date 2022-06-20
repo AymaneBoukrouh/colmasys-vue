@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import App from '@/App.vue'
 import Login from '@/views/Login.vue'
 import Dashboard from '@/views/Dashboard.vue'
+import Feed from '@/views/Feed.vue'
 import Students from '@/views/student/Students.vue'
 import Student from '@/views/student/Student.vue'
 import AddStudent from '@/views/student/AddStudent.vue'
@@ -18,12 +19,16 @@ import Clubs from '@/views/club/Clubs.vue'
 import Club from '@/views/club/Club.vue'
 import AddClub from '@/views/club/AddClub.vue'
 import EditClub from '@/views/club/EditClub.vue'
+import Post from '@/views/post/Post.vue'
+import AddPost from '@/views/post/AddPost.vue'
+import EditPost from '@/views/post/EditPost.vue'
 import '/src/assets/js/bootstrap.js'
 
 const routes = [
     { path: '/', name: 'Root', component: Login },
     { path: '/login', name: 'Login', component: Login },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+    { path: '/feed', name: 'Feed', component: Feed },
     { path: '/students', name: 'Students', component: Students },
     { path: '/students/new', name: 'AddStudent', component: AddStudent },
     { path: '/students/edit/:username', name: 'EditStudent', component: EditStudent },
@@ -38,7 +43,10 @@ const routes = [
     { path: '/clubs', name: 'Clubs', component: Clubs },
     { path: '/clubs/new', name: 'AddClub', component: AddClub },
     { path: '/clubs/edit/:id', name: 'EditClub', component: EditClub },
-    { path: '/clubs/:id', name: 'Club', component: Club }
+    { path: '/clubs/:id', name: 'Club', component: Club },
+    { path: '/posts/new', name: 'AddPost', component: AddPost },
+    { path: '/posts/edit/:id', name: 'EditPost', component: EditPost },
+    { path: '/posts/:id', name: 'Post', component: Post },
 ];
 
 const router = createRouter({

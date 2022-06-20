@@ -7,9 +7,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar-content">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link to="/dashboard" class="nav-link active">Dashboard</router-link>
-          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbar-management" role="button" data-bs-toggle="dropdown" aria-expanded="false">Management</a>
             <ul class="dropdown-menu" aria-labelledby="navbar-management">
@@ -19,8 +16,22 @@
               <li><router-link to="/classes" class="dropdown-item">Classes</router-link></li>
             </ul>
           </li>
+          <li class="nav-item">
+            <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/feed" class="nav-link">Feed</router-link>
+          </li>
         </ul>
       </div>
+      <div class="dropdown">
+				<button type="button" id="user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+					<i class="bi bi-person-circle"></i>
+				</button>
+				<div class="dropdown-menu dropdown-menu-end" aria-labelledby="user-menu">
+					<router-link :to="{ name: 'AddPost' }" class="dropdown-item">Create Post</router-link>
+				</div>
+			</div>
     </div>
   </nav>
   <div class="container-fluid p-2">
@@ -31,5 +42,10 @@
 </template>
 
 <style scoped>
-
+#user-menu {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+}
 </style>
