@@ -7,10 +7,10 @@
     <div class="user-info">
       <h2>{{ username }}</h2>
       <hr>
-      <span><b>ID: </b>ID<br></span>
-      <span><b>Full Name: </b>FIRSTNAME + LASTNAME<br></span>
-      <span><b>Email: </b>EMAIL<br></span>
-      <span><b>Gender: </b>GENDER<br></span>
+      <span><b>Full Name: </b>{{ firstname }} {{ lastname }}<br></span>
+      <span><b>Email: </b>{{ email }}<br></span>
+      <span><b>Gender: </b>{{ gender }}<br></span>
+      <span><b>Class: </b>{{ class_ }}<br></span>
     </div>
   </div>
   <section class="posts">
@@ -20,9 +20,26 @@
 
 <script>
 export default {
+  async mounted () {
+    await fetch(`http://localhost:8000/student/username/${this.username}`)
+      .then((response) => response.json()
+        .then((data) => {
+          this.firstname = data.firstname;
+          this.lastname = data.lastname;
+          this.email = data.email;
+          this.gender = data.gender;
+          this.class_ = data.class;
+        })
+      )
+  },
   data() {
     return {
-      username: this.$route.params.username
+      username: this.$route.params.username,
+      firstname: null,
+      lastname: null,
+      email: null,
+      gender: null,
+      class_: null
     }
   }
 }

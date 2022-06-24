@@ -15,7 +15,7 @@ import StudentForm from '@/forms/StudentForm.vue'
         :email = 'email'
         :birthdate = 'birthdate'
         :gender = 'gender'
-        :class_id = class_id
+        :class_id = 'class_id'
       />
   </div>
 </template>

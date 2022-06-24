@@ -2,13 +2,14 @@
   <div class="post bg-dark">
 		<div class="vote-buttons-container">
 			<div class="vote-buttons">
-				<button @click="sendVote('upvote', id)" class="vote" :id="'upvote-post-' + id"><i class="bi-chevron-up"></i></button>
+				<button @click="sendVote('upvote', id)" class="vote" :class="{ active : upvote }" :id="'upvote-post-' + id"><i class="bi-chevron-up"></i></button>
 				<div class="votes" id="votes-post-{{ id }}">{{ votes }}</div>
-				<button @click="sendVote('downvote', id)" class="vote" :id="'downvote-post-' + id"><i class="bi-chevron-down"></i></button>
+				<button @click="sendVote('downvote', id)" class="vote" :class="{ active : downvote }" :id="'downvote-post-' + id"><i class="bi-chevron-down"></i></button>
 			</div>
 		</div>
 		<div class="author">
-			<div><i class="bi-person-circle"></i>&nbsp;{{ author }}</div>
+			<!--<div><i class="bi-person-circle"></i>&nbsp;{{ author }}</div>-->
+      <div><img class="profile-image" :src="imgsrc">&ensp;{{ author }}</div>
 		</div>
 		<div class="title"><router-link :to="{name: 'Post', params: {id: id}}" class="title-link">{{ title }}</router-link></div>
 		<div class="content" style="white-space: pre-wrap;">{{ content }}</div>
@@ -21,10 +22,13 @@ export default {
   props: {
     id: Number,
     author: String,
+    imgsrc: String,
     title: String,
     content: String,
     n_votes: Number,
-    n_comments: Number
+    n_comments: Number,
+    upvote: Boolean,
+    downvote: Boolean
   },
   data () {
     return {
@@ -60,6 +64,12 @@ export default {
 </script>
 
 <style scoped>
+.profile-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
 .post {
 	display: grid;
 	grid-template-columns: 50px calc(100% - 50px);

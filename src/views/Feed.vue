@@ -7,6 +7,7 @@ import Post from '@/components/Post.vue'
     <Post
       :id = 'post.id'
       :author = 'post.author'
+      imgsrc = 'https://picsum.photos/id/1005/200/200'
       :title = 'post.title'
       :content = 'post.content'
       :n_votes = 'post.n_votes'
@@ -18,7 +19,7 @@ import Post from '@/components/Post.vue'
 <script>
 export default {
   async mounted () {
-    await fetch('http://localhost:8000/user/T10013/posts')
+    await fetch('http://localhost:8000/feed')
     .then((response) => response.json()
       .then((data) => {
         this.posts = data;
